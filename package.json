@@ -60,5 +60,8 @@
       "lcov"
     ],
     "all": true
+  },
+  "dependencies": {
+    "@curium.rocks/data-emitter-base": "^0.1.1-alpha.11"
   }
 }

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    job: ci-node-starter
+    job: ci-ping-pong-emitter
 spec:
   containers:
   - name: node-build

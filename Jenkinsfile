@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Notify') {
       steps {
-        mattermostSend color: "warning", message: "[Node-TS-Starter] Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+        mattermostSend color: "warning", message: "[Ping-Pong-Emitter] Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
       }
     }
     //always run
@@ -32,7 +32,7 @@ pipeline {
             }
         }
     }
-    /*stage('Publish Prerelease') {
+    stage('Publish Prerelease') {
         when {
             allOf {
                 branch 'development'
@@ -81,14 +81,14 @@ pipeline {
                 sh 'npm publish --access public'
             }
         }
-    } */
+    }
   }
   post {
     failure {
-       mattermostSend color: "danger", message: "[Node-TS-Starter] Build Failure - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       mattermostSend color: "danger", message: "[Ping-Pong-Emitter] Build Failure - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
     }
     success{
-       mattermostSend color: "good", message: "[Node-TS-Starter] Build Success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       mattermostSend color: "good", message: "[Ping-Pong-Emitter] Build Success - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
     }
     always {
        archiveArtifacts artifacts: 'build/**/*,coverage/**/*,docs/**/*', fingerprint: true

@@ -1,7 +1,7 @@
 {
-  "name": "@curium.rocks/node-ts-starter",
+  "name": "@curium.rocks/ping-pong-emitter",
   "version": "0.1.0",
-  "description": "A starter template for a Node.JS typescript project",
+  "description": "A emitter that peroidically emits a ping message and expects a pong",
   "main": "build/src/index.js",
   "scripts": {
     "test": "nyc mocha --require ts-node/register --require source-map-support/register --recursive 'test/**/*.ts'",
@@ -10,18 +10,21 @@
     "clean": "rm -fr build",
     "doc": "typedoc src/index.ts",
     "prepare": "npm run build",
-    "sonarscan": "sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.projectKey=node-ts-starter -Dsonar.sources=. -Dsonar.host.url=https://$SONAR_QUBE_HOST_NAME -Dsonar.login=$SONAR_LOGIN -Dsonar.javascript.lcov.reportPath=coverage/"
+    "sonarscan": "sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.projectKey=ping-pong-emitter -Dsonar.sources=. -Dsonar.host.url=https://$SONAR_QUBE_HOST_NAME -Dsonar.login=$SONAR_LOGIN -Dsonar.javascript.lcov.reportPath=coverage/"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.curium.rocks/curium.rocks/node-ts-starter.git"
+    "url": "https://git.curium.rocks/curium.rocks/ping-pong-emitter.git"
   },
   "keywords": [
     "node.js",
     "typescript",
     "sonarqube",
     "jenkins",
-    "jenkins-k8s"
+    "jenkins-k8s",
+    "idataemitter",
+    "ping",
+    "pong"
   ],
   "author": "",
   "license": "MIT",

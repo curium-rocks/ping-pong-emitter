@@ -26,6 +26,7 @@ export class PingPongEmitter extends PollingEmitter {
     private lastPongRecvMs = 0;
     private pongCheckerHandler?: ReturnType<typeof setInterval>;
     private failureThresholdMs = 0;
+    private pingIntervalMs = 0;
 
     /**
      * 
@@ -39,6 +40,7 @@ export class PingPongEmitter extends PollingEmitter {
         this.failureThresholdMs = pingInterval * 3;
         // check the last received pong and change the BIT based on that.
         this.pongCheckerHandler = setInterval(this.checkLastPong.bind(this), pingInterval*2);
+        this.pingIntervalMs = pingInterval;
     }
 
     /**
@@ -116,7 +118,11 @@ export class PingPongEmitter extends PollingEmitter {
      * @return {unknown}
      */
     getMetaData(): unknown {
-        return undefined;
+        return {
+            pingInterval: this.pingIntervalMs,
+            pongTimeout: this.failureThresholdMs,
+            lastPongRecv: this.lastPongRecvMs
+        };
     }
     
     /**

@@ -1,2 +1,2 @@
 export {IDataEmitter, IDataEvent, IExecutionResult, ISettings, ICommand, ITraceableAction, PollingEmitter, BaseEmitter} from '@curium.rocks/data-emitter-base';
-export {PingPongEmitter} from "./pingPongEmitter"
+export {PingPongEmitter, PingPongMessage, PingPongMessageType, isPingPongMessage} from "./pingPongEmitter"

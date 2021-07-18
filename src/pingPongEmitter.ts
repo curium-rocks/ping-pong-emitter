@@ -134,4 +134,12 @@ export class PingPongEmitter extends PollingEmitter {
             clearInterval(this.pongCheckerHandler);
         }
     }
+
+    /**
+     * Get the emitter type
+     * @return {string} 
+     */
+    public getType(): string {
+        return "PingPongEmitter";
+    }
 }

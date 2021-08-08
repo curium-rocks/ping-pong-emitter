@@ -1,6 +1,6 @@
 {
   "name": "@curium.rocks/ping-pong-emitter",
-  "version": "0.1.1-8",
+  "version": "0.1.1-9",
   "description": "A emitter that peroidically emits a ping message and expects a pong",
   "main": "build/src/index.js",
   "scripts": {

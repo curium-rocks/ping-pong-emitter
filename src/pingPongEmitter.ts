@@ -22,6 +22,7 @@ export function isPingPongMessage(obj:unknown) : boolean {
  */
 export class PingPongEmitter extends PollingEmitter {
 
+    public static readonly TYPE = 'PING-PONG-EMITTER';
 
     private lastPongRecvMs = 0;
     private pongCheckerHandler?: ReturnType<typeof setInterval>;
@@ -124,7 +125,17 @@ export class PingPongEmitter extends PollingEmitter {
             lastPongRecv: this.lastPongRecvMs
         };
     }
-    
+
+    /**
+     * 
+     * @return {unknown} 
+     */
+    getEmitterProperties(): unknown {
+        return {
+            interval: this.pingIntervalMs
+        }
+    }
+
     /**
      * Cleanup resources created such as timers
      */
@@ -140,6 +151,6 @@ export class PingPongEmitter extends PollingEmitter {
      * @return {string} 
      */
     public getType(): string {
-        return "PingPongEmitter";
+        return PingPongEmitter.TYPE;
     }
 }
